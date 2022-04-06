@@ -1,0 +1,89 @@
+
+//"BancoNTTData"
+
+//Collections
+{"comments" : "Collections - customers"}
+{
+    "id"            : 1,
+    "firstName"     : "Jerry",
+    "listName"      : "Aguilar",
+    "documentNumber": "76572874",
+    "documentType"  : "DNI",
+    "phone"         : "982521527",
+    "address"       : 
+    {
+        "street"    : "Av. El Triunfo",
+        "number"    : "1363",
+        "district"  : "Villa Maria del Triunfo",
+        "city"      : "Lima"
+    },
+    "email"         : "jerry.cueto@gmail.com",
+    "customerType"  : "Personal / Empresarial"
+}
+
+//bankAccounts
+{
+    "id"            : 1,
+    "customersId"   : 
+    {
+        "bankHolder" : "5" //Titular en caso sea empresarial
+        [
+            {
+                "id" : "1", //Representantes legales
+                "authorize" : true
+            },
+            {
+                "id" : "1",
+                "authorize": false 
+            }
+        ]
+    }, 
+    "type"          : "Ahorro / Cuenta corriente / Plazo fijo",
+    "commission"    : "0.0 / 10.0 / 0.0",
+    "countTransactions" : "5 / ∞ /  1",
+    "dayAllowed" : "5",
+    "transactions"  :    
+    [
+        {
+            "idTransactions" : 1,
+            "type" : "Deposito / Retiro",
+            "amountTransactions" : 500,
+            "createAt" : "2022-4-5 00:00:00",
+        },
+        {
+            "idTransactions" : 2,
+            "type" : "Deposito / Retiro",
+            "amountTransactions" : 500,
+            "createAt" : "2022-4-5 00:00:00",
+        }
+    ],
+    "amount"        : 500,
+    "createAt"      : "2022-4-5 00:00:00",
+    "updatedAt"     : "2022-4-6 00:00:00"
+}
+
+//bankCredit
+{
+    "id"            : 1,
+    "customersId"   : 1,
+    "type"          : "Personal / Empresarial / TC Personal / TC Empresarial",
+    "csLimit"   : 1500, //Limite de credito
+    "calance"       : 500, //Saldo
+    "transactions"  :
+    [
+        {
+            "idTransactions" : 1,
+            "type" : "Gasto / Pago",
+            "amountTransactions" : 500,
+            "createAt" : "2022-4-5 00:00:00",
+        },
+        {
+            "idTransactions" : 2,
+            "type" : "Gasto / Pago",
+            "amountTransactions" : 500,
+            "createAt" : "2022-4-5 00:00:00",
+        }
+    ],
+    "createAt"      : "2022-4-5 00:00:00",
+    "updatedAt"     : "2022-4-6 00:00:00"
+}
