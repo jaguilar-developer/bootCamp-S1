@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import lombok.AllArgsConstructor;
 import java.util.List;
-
 import com.nttdata.semana1.model.Customer;
 import com.nttdata.semana1.service.CustomerService;
 
@@ -28,20 +27,19 @@ public class CustomerController {
 	}
 	
 	@GetMapping("/customers")
-	public List<Customer> showCustomers(){
-		List<Customer> oCustomer = customerService.showCustomer();
-		//return customerService.showCustomer();
+	public List<Customer> findAll(){
+		List<Customer> oCustomer = customerService.findAll();
 		return oCustomer;
 	}
 	
 	@GetMapping("/customer/{id}")
 	public Customer showCustomerById(@PathVariable String id){		
-		return customerService.showCustomerById(id).get();
+		return customerService.findById(id).get();
 	}
 	
 	@DeleteMapping("/customer/{id}")
 	public void delete(@PathVariable String id) {
-		customerService.deleteCustomer(id);
+		customerService.deleteById(id);
 	}
 	
 	@PutMapping("/customers")

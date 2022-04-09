@@ -16,15 +16,15 @@ public class CustomerService{
 		customerRepository.save(customer);
 	}
 	
-	public List<Customer> showCustomer(){
+	public List<Customer> findAll(){
 		return customerRepository.findAll();
 	}
 	
-	public Optional<Customer> showCustomerById(String id) {
+	public Optional<Customer> findById(String id) {
 		return customerRepository.findById(id);
 	}
 	
-	public void deleteCustomer(String id) {		
+	public void deleteById(String id) {		
 		customerRepository.deleteById(id);
 	}
 }

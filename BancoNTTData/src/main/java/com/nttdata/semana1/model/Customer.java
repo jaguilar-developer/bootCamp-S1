@@ -1,8 +1,8 @@
 package com.nttdata.semana1.model;
 
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
 import lombok.Data;
 
 @Document(value = "customers")
@@ -16,7 +16,8 @@ public class Customer {
 	private String documentNumber;
 	private String documentType;
 	private String phone;
+	private Address address;
 	private String email;
-	private String customerType;
+	private String customerType;	
 
 }
