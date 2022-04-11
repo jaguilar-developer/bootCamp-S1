@@ -1,0 +1,7 @@
+server:
+  port: 8002
+spring:
+   data:
+    mongodb:
+      database: bootcamp_db
+      uri: mongodb+srv://bootcamp:aGubjiiUGW035dXW@cluster0.pckms.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
