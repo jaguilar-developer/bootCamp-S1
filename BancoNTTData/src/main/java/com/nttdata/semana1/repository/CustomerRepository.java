@@ -1,13 +1,12 @@
 package com.nttdata.semana1.repository;
 
-import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.stereotype.Repository;
-
+import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 import com.nttdata.semana1.model.Customer;
-import java.util.List;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
-@Repository
-public interface CustomerRepository extends MongoRepository<Customer,String>{	
-	
-	Customer findByDocumentNumber(String documentNumber);
+public interface CustomerRepository extends ReactiveCrudRepository<Customer,String>{
+		
+	public Mono<Customer> findBydocumentNumber(String number);
+	public Mono<Customer> findById(String id);
 }

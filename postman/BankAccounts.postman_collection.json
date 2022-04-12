@@ -1,0 +1,166 @@
+{
+	"info": {
+		"_postman_id": "eb3c1c84-2736-4909-b033-76d33289c009",
+		"name": "BankAccounts",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "findAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8002/api/v1/accounts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"v1",
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findNumber",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8002/api/v1/accounts/100-103",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"v1",
+						"accounts",
+						"100-103"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createAccounts",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"id\"\t\t\t: \"2\",\r\n\t\"customers\"\t\t:\r\n\t[\r\n\t\t{\r\n\t\t\t\"documentNumber\" : \"1111000\",\r\n\t\t\t\"authorize\" : true\r\n\t\t}\r\n\t],\r\n    \"number\": \"100-103\",\r\n    \"type\":\"CUENTA_EMPRESARIAL\",\r\n\t\"nameType\"\t\t\t: \"CUENTA CORRIENTE\",\t\r\n\t\"commission\"\t: 1.5,\r\n\t\"countTransactions\" : 5,\r\n\t\"transactions\" : \r\n\t[\r\n\t\t{\r\n\t\t\t\"idTransactions\" : 1,\r\n\t\t\t\"type\" : \"D\",\r\n\t\t\t\"amountTransactions\" : 500,\r\n\t\t\t\"createAt\" : \"2022-04-05\"\r\n\t\t}\r\n\t],\r\n\t\"dayAllowed\": \"8\",\r\n\t\"amount\" : 500,\r\n\t\"createAt\" : \"2022-04-05\",\r\n\t\"updatedAt\": \"2022-04-05\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8002/api/v1/accounts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"v1",
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteAccount",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8002/api/v1/accounts/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"v1",
+						"accounts",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateAccount",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"id\"\t\t\t: \"2\",\r\n\t\"customers\"\t\t:\r\n\t[\r\n\t\t{\r\n\t\t\t\"documentNumber\" : \"1111000\",\r\n\t\t\t\"authorize\" : true\r\n\t\t}\r\n\t],\r\n    \"number\": \"100-103\",\r\n    \"type\":\"CUENTA_EMPRESARIAL\",\r\n\t\"nameType\"\t\t\t: \"CUENTA CORRIENTE\",\t\r\n\t\"commission\"\t: 1.5,\r\n\t\"countTransactions\" : 5,\r\n\t\"transactions\" : \r\n\t[\r\n\t\t{\r\n\t\t\t\"idTransactions\" : 1,\r\n\t\t\t\"type\" : \"D\",\r\n\t\t\t\"amountTransactions\" : 500,\r\n\t\t\t\"createAt\" : \"2022-04-05\"\r\n\t\t}\r\n\t],\r\n\t\"dayAllowed\": \"8\",\r\n\t\"amount\" : 500,\r\n\t\"createAt\" : \"2022-04-05\",\r\n\t\"updatedAt\": \"2022-04-05\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8002/api/v1/accounts/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"v1",
+						"accounts",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createTransacction",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idTransactions\" : \"1\",\r\n    \"type\" : \"D\",\r\n    \"amountTransactions\" : 100,\r\n    \"number\" : \"001-002\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8002/api/v1/accounts/transactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"v1",
+						"accounts",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

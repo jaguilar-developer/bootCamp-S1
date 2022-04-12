@@ -1,0 +1,158 @@
+{
+	"info": {
+		"_postman_id": "5fdadeec-6e41-41e9-9535-c9c92d43ddab",
+		"name": "Customers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "createCustomer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": \"4\",\r\n        \"firstName\": \"Luis\",\r\n        \"listName\": \"Cueto\",\r\n        \"documentNumber\": \"76572864\",\r\n        \"documentType\": \"DNI\",\r\n        \"phone\": \"982521527\",\r\n        \"address\": {\r\n            \"street\": \"Av. El Triunfo\",\r\n            \"number\": \"1363\",\r\n            \"district\": \"Villa Maria del Triunfo\",\r\n            \"city\": \"Lima\"\r\n        },\r\n        \"email\": \"jerry.cueto@gmail.com\",\r\n        \"customerType\": \"E\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8002/api/v1/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"v1",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8002/api/v1/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"v1",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateCustomer",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": \"3\",\r\n        \"firstName\": \"Jerry\",\r\n        \"listName\": \"Aguilar\",\r\n        \"documentNumber\": \"76572863\",\r\n        \"documentType\": \"DNI\",\r\n        \"phone\": \"982521527\",\r\n        \"address\": {\r\n            \"street\": \"Av. El Triunfo\",\r\n            \"number\": \"1363\",\r\n            \"district\": \"VMT\",\r\n            \"city\": \"Lima\"\r\n        },\r\n        \"email\": \"jerry.cueto@gmail.com\",\r\n        \"customerType\": \"P\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8002/api/v1/customers/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"v1",
+						"customers",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteCustomer",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8002/api/v1/customers/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"v1",
+						"customers",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8002/api/v1/customer/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"v1",
+						"customer",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findNumber",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8002/api/v1/customer/search/76572863",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"v1",
+						"customer",
+						"search",
+						"76572863"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

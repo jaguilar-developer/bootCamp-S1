@@ -5,9 +5,9 @@ import lombok.Data;
 @Data
 public class Address {
 	
-	private String street;
-	private String number;
-	private String district;
-	private String city;
+	public String street;
+	public String number;
+	public String district;
+	public String city;
 
 }

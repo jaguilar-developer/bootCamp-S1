@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class CustomerBank{
 	
-	private String documentNumber;
-	private Boolean authorize;
+	public String documentNumber;
+	public Boolean authorize;
 
 }

@@ -5,9 +5,9 @@ import lombok.Data;
 @Data
 public class Transactions {
 	
-	private String idTransactions;
-	private String type;
-	private Double amountTransactions;
-	private String createAt;
+	public String idTransactions;
+	public String type;
+	public Double amountTransactions;
+	public String createAt;
 
 }

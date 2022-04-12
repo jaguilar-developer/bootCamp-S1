@@ -1,30 +1,16 @@
 package com.nttdata.semana1.service;
 
 import com.nttdata.semana1.model.Customer;
-import com.nttdata.semana1.repository.CustomerRepository;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-import java.util.List;
-import java.util.Optional;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
-@Service
-@RequiredArgsConstructor
-public class CustomerService{
-	private final CustomerRepository customerRepository;
+
+public interface CustomerService{
 	
-	public void saveCustomer(Customer customer) {
-		customerRepository.save(customer);
-	}
-	
-	public List<Customer> findAll(){
-		return customerRepository.findAll();
-	}
-	
-	public Optional<Customer> findById(String id) {
-		return customerRepository.findById(id);
-	}
-	
-	public void deleteById(String id) {		
-		customerRepository.deleteById(id);
-	}
+	public Flux<Customer> getAll();
+	public Mono<Customer> createCustomer(Customer _customer);
+	public Mono<Customer> updateCustomer(Customer _customer);
+	public Mono<Void> deleteCustomer(String id);
+	public Mono<Customer> findById(String id);
+	public Mono<Customer> findBydocumentNumber(String number);	
 }

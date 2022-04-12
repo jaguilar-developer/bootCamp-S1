@@ -10,14 +10,14 @@ import lombok.Data;
 public class Customer {
 
 	@Id
-	private String id;
-	private String firstName;
-	private String listName;
-	private String documentNumber;
-	private String documentType;
-	private String phone;
-	private Address address;
-	private String email;
-	private String customerType;	
+	public String id;
+	public String firstName;
+	public String listName;
+	public String documentNumber;
+	public String documentType;
+	public String phone;
+	public Address address;
+	public String email;
+	public String customerType;	
 
 }
