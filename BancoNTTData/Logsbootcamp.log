@@ -1,0 +1,2 @@
+11-04-2022 22:59:55.046 INFO  clients_log - Se registró un nuevo producto de crédito con id= 99 y número= 4281454578412563
+11-04-2022 23:00:00.317 INFO  clients_log - Se eliminó el producto de crédito con id= 99 y número= 4281454578412563

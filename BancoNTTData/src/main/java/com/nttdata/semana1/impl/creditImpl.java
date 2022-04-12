@@ -4,7 +4,8 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.nttdata.semana1.dto.TransactionsDTO;
@@ -24,7 +25,10 @@ import reactor.core.publisher.Mono;
 @AllArgsConstructor
 public class creditImpl implements creditService{
 
-	final creditRepository repository;
+	  private static final Logger logger_consola = LoggerFactory.getLogger("consola");
+	  private static final Logger logger_file = LoggerFactory.getLogger("bootcamp_log");
+
+	  final creditRepository repository;
 	
 	@Override
 	public Flux<credit> getAll(){
@@ -37,7 +41,12 @@ public class creditImpl implements creditService{
 		return repository.findBycustomerid(_credit.getCustomerid())
 				.flatMap(p -> validateCreateCreditPerson(_credit))
 				.switchIfEmpty(repository.save(_credit))
-				.then(Mono.just(_credit));
+				.then(Mono.just(_credit))
+				.doOnNext(x -> { 
+					logger_file.info("Se registró un nuevo producto de crédito con id= {} y número= {}",x.getId(), x.getNumber());
+		            logger_consola.info("Se registró un nuevo producto de crédito con id= {} y número= {}",x.getId(), x.getNumber());
+				});
+						
 	}
 	
 	@Override
@@ -46,6 +55,8 @@ public class creditImpl implements creditService{
 		return repository.findById(_credit.getId())
 				.map(p-> 
 				{	repository.save(_credit).subscribe();
+					logger_file.info("Se actualizó el producto de crédito con id= {} y número= {}",p.getId(), p.getNumber());
+					logger_consola.info("Se actualizó el producto de crédito con id= {} y número= {}",p.getId(), p.getNumber());
 					return _credit;
 				});
 	}
@@ -60,6 +71,10 @@ public class creditImpl implements creditService{
 	public Mono<Void> deleteCredit(Integer id)
 	{
 		return repository.findById(id)
+				.doOnNext(x -> { 
+					logger_file.info("Se eliminó el producto de crédito con id= {} y número= {}",x.getId(), x.getNumber());
+		            logger_consola.info("Se registró un nuevo producto de crédito con id= {} y número= {}",x.getId(), x.getNumber());
+				})
 				.flatMap(p -> repository.deleteById(p.getId()));
 	}
 	
@@ -95,6 +110,8 @@ public class creditImpl implements creditService{
 					p.setCsLimit(setCreditLimit(p, transactionDTO));
 					p.setCalance(setBalance(p, transactionDTO.getAmountTransactions()));
 					repository.save(p).subscribe();	
+					logger_file.info("Se regsitró una nueva transacciòn  para el producto de crédito con id= {} y número= {}",p.getId(), p.getNumber());
+		            logger_consola.info("Se registró una nueva transacciòn para el producto de crédito con id= {} y número= {}",p.getId(), p.getNumber());
 					return p;
 				});
 	}
