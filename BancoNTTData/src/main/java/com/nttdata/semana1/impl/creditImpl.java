@@ -68,6 +68,13 @@ public class creditImpl implements creditService{
 	{
 		return repository.findById(id);
 	}
+	
+	@Override
+	public Mono<credit> findBynumber(String number)
+	{
+		return repository.findBynumber(number);
+	}
+
 
 	
 	private Mono<credit> validateCreateCreditPerson(credit _credit)

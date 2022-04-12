@@ -15,4 +15,5 @@ public interface creditService {
 	public Mono<Void> deleteCredit(Integer id);
 	public Mono<credit> PaymentCredit(TransactionsDTO transactionDTO);
 	public Mono<credit> findById(Integer id);
+	public Mono<credit> findBynumber(String number);
 }

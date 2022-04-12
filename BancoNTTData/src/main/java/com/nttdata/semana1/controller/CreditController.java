@@ -54,11 +54,15 @@ public class CreditController {
 	}
 	
 	
-	@PostMapping("/transactions")
+	@PostMapping("/credit/transactions")
 	public Mono<credit> PaymentCredit(@RequestBody TransactionsDTO transactiondto)
 	{
 		return servicio.PaymentCredit(transactiondto);
 	}
 	
-
+	@GetMapping("/credits/number/{number}")
+	public Mono<credit> getById(@PathVariable String number)
+	{
+		return servicio.findBynumber(number);
+	}
 }
