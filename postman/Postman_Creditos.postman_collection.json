@@ -1,0 +1,167 @@
+{
+	"info": {
+		"_postman_id": "f16d9b9b-67c3-4e8c-8927-2727b03c9020",
+		"name": "Postman_Creditos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "RegistraCredito",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":3, \r\n    \"customerid\":\"2\", \r\n    \"type\":\"TC_PERSONAL\", \r\n    \"number\":\"4281454578412563\", \r\n    \"csLimit\":10000, \r\n    \"calance\":0, \r\n    \"createdAt\": \"2009-10-01T00:00:00\"\r\n}\r\n\r\n/* \r\n{\r\n    \"id\": <id de credito>, \r\n    \"customerid\": <id de client>, \r\n    \"type\": <tipo de producto credito: CREDITO_PERSONAL,CREDITO_EMPRESARIAL,TC_PERSONAL,TC_EMPRESARIAL> \r\n    \"number\": <número del producto>, \r\n    \"csLimit\": <Linea de credito (solo para TC)>, \r\n    \"calance\": <*Saldo (solo para creditos)>, \r\n    \"createdAt\": \r\n}\r\n*/",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8002/api/v1/credits",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"v1",
+						"credits"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConsultaCreditos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8002/api/v1/credits",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"v1",
+						"credits"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EliminaCredito",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8002/api/v1/credits/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"v1",
+						"credits",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ActualizaCredito",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":1,\r\n    \"customerid\":\"21\",\r\n    \"type\":\"CREDITO_EMPRESARIAL\",\r\n    \"number\":\"1010101010\",\r\n    \"csLimit\":60000,\r\n    \"calance\":1500,\r\n    \"createdAt\": \"2009-10-01T00:00:00\",\r\n    \"transactions\":[\r\n        {\r\n            \"idTransactions\":1,\r\n            \"type\":\"GASTO\",\r\n            \"amountTransactions\":25,\r\n            \"createAt\":\"2022-04-10T00:00:00\"\r\n        }\r\n    ]\r\n}\r\n\r\n/* \r\n{\r\n    \"id\": <id de credito>, \r\n    \"customerid\": <id de client>, \r\n    \"type\": <tipo de producto credito: CREDITO_PERSONAL,CREDITO_EMPRESARIAL,TC_PERSONAL,TC_EMPRESARIAL> \r\n    \"number\": <número del producto>, \r\n    \"csLimit\": <Linea de credito (solo para TC)>, \r\n    \"calance\": <*Saldo (solo para creditos)>, \r\n    \"createdAt\": \r\n    \"transactions\":[\r\n        {\r\n            \"idTransactions\": <id transaccion (autogenerado)>,, \r\n            \"type\": <tipo transaccion: GASTO , CONSUMO>,\r\n            \"amountTransactions\": <monto transaccion>,\r\n            \"createAt\":\"2022-04-10T00:00:00\"\r\n        }\r\n    ]\r\n}\r\n*/",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8002/api/v1/credits/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"v1",
+						"credits",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RegistraTransaccionesCredito",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"type\":\"CONSUMO\",\r\n    \"amountTransactions\": 70,\r\n    \"number\":\"4281454578412563\"\r\n}\r\n\r\n/* \r\n{\r\n    \"type\": <tipo de transaccion: GASTO , CONSUMO>, \r\n    \"amountTransactions\": <monto de transaccion>, \r\n    \"number\": <número del producto>, \r\n}\r\n*/",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8002/api/v1/credit/transactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"v1",
+						"credit",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ConsultaProductoCreditoxNumero",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8002/api/v1/credits/number/4281454578412563",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"v1",
+						"credits",
+						"number",
+						"4281454578412563"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
